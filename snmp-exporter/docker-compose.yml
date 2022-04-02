@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  snmp-exporter:
+    privileged: true
+    image: ricardbejarano/snmp_exporter
+    container_name: snmp-exporter
+    restart: always
+    ports:
+      - "9116:9116"
+    volumes:
+      - /volume1/docker/snmp-exporter/snmp.yml:/generator.yml
+#      - /volume1/docker/snmp-exporter/snmp.yml:/snmp.yml
+#      - /volume1/docker/snmp-exporter/generator.yml:/generator.yml
+#      - /proc:/host/proc:ro
+#      - /sys:/host/sys:ro
+#      - /:/rootfs:ro
+#    command:
+#      - "--path.procfs=/host/proc"
+#      - "--path.sysfs=/host/sys"
+#      - "--collector.filesystem.ignored-mount-points"
+#      - "^/(rootfs/)?(dev|etc|host|proc|run|sys|volume1)($$|/)"
